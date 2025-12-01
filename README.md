@@ -39,3 +39,7 @@ RTX 6000 Pro
 --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu128 
 
 Conda env python=3.12.9 -y
+
+
+Original repo:  
+https://github.com/cbsjtu01/IMTalker
