@@ -30,11 +30,12 @@ It will download the models first time you run workflow
 
 
 
-✅ Run:
+✅ Run and Tested on::
 
 17Gb VRAM usage max for both Audio and Video driven
 
-✅ Tested on:
-RTX 6000 Pro 
---pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu128
-codna python=3.12.9 -y
+RTX 6000 Pro  
+
+--pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu128 
+
+Conda env python=3.12.9 -y
