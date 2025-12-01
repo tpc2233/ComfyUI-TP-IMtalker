@@ -1,2 +1,2 @@
 # ComfyUI-TP-IMtalker
-ComfyUI port of IMtalker running native weights 
+Comfy UI nodes for IMtalker to run native weights
