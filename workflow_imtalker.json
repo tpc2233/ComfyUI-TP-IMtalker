@@ -1,0 +1,590 @@
+{
+  "id": "44631a17-2053-44f0-9737-f8aa4cc6dc69",
+  "revision": 0,
+  "last_node_id": 28,
+  "last_link_id": 39,
+  "nodes": [
+    {
+      "id": 11,
+      "type": "LoadImage",
+      "pos": [
+        47,
+        205
+      ],
+      "size": [
+        315,
+        314
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            12,
+            29
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "slot_index": 1,
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.75",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "source_1.png",
+        "image"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "IMTalkerLoader",
+      "pos": [
+        45.58,
+        89.87999999999998
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "model_bundle",
+          "type": "IMTALKER_MODEL",
+          "slot_index": 0,
+          "links": [
+            11,
+            28
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "IMTalkerLoader"
+      },
+      "widgets_values": [
+        true
+      ]
+    },
+    {
+      "id": 21,
+      "type": "IMTalkerVideoDriven",
+      "pos": [
+        457.1644100000002,
+        954.5737799999982
+      ],
+      "size": [
+        325,
+        122
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model_bundle",
+          "type": "IMTALKER_MODEL",
+          "link": 28
+        },
+        {
+          "name": "source_image",
+          "type": "IMAGE",
+          "link": 29
+        },
+        {
+          "name": "driving_images",
+          "type": "IMAGE",
+          "link": 37
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            39
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "IMTalkerVideoDriven"
+      },
+      "widgets_values": [
+        true
+      ]
+    },
+    {
+      "id": 12,
+      "type": "LoadAudio",
+      "pos": [
+        45,
+        576
+      ],
+      "size": [
+        315,
+        136
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "slot_index": 0,
+          "links": [
+            13,
+            36
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.75",
+        "Node name for S&R": "LoadAudio"
+      },
+      "widgets_values": [
+        "audio_1.wav",
+        null,
+        null
+      ]
+    },
+    {
+      "id": 13,
+      "type": "IMTalkerAudioDriven",
+      "pos": [
+        448,
+        146
+      ],
+      "size": [
+        331,
+        194
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model_bundle",
+          "type": "IMTALKER_MODEL",
+          "link": 11
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 12
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "link": 13
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            35
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "IMTalkerAudioDriven"
+      },
+      "widgets_values": [
+        42,
+        "fixed",
+        10,
+        3,
+        true
+      ]
+    },
+    {
+      "id": 26,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        869.7195952910033,
+        90.39829801343038
+      ],
+      "size": [
+        304.93645906250003,
+        629.7154390624999
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 35
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 36
+        },
+        {
+          "name": "meta_batch",
+          "shape": 7,
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "537f3a02269e14ab4b0350d4189a52034e9a3b12",
+        "Node name for S&R": "VHS_VideoCombine",
+        "aux_id": "Kosinkadink/ComfyUI-VideoHelperSuite"
+      },
+      "widgets_values": {
+        "frame_rate": 25,
+        "loop_count": 0,
+        "filename_prefix": "IMtalker_audio",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "IMtalker_audio_00001-audio.mp4",
+            "subfolder": "",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 25,
+            "workflow": "IMtalker_audio_00001.png",
+            "fullpath": "/tp_data/jobs/comfyuiss/imtalker/output/IMtalker_audio_00001-audio.mp4"
+          }
+        }
+      }
+    },
+    {
+      "id": 27,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        899.1273142910051,
+        1001.52846741343
+      ],
+      "size": [
+        314.5995190624999,
+        642.5995190624999
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 39
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 38
+        },
+        {
+          "name": "meta_batch",
+          "shape": 7,
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "537f3a02269e14ab4b0350d4189a52034e9a3b12",
+        "Node name for S&R": "VHS_VideoCombine",
+        "aux_id": "Kosinkadink/ComfyUI-VideoHelperSuite"
+      },
+      "widgets_values": {
+        "frame_rate": 25,
+        "loop_count": 0,
+        "filename_prefix": "IMtalker",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "IMtalker_00005-audio.mp4",
+            "subfolder": "",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 25,
+            "workflow": "IMtalker_00005.png",
+            "fullpath": "/tp_data/jobs/comfyuiss/imtalker/output/IMtalker_00005-audio.mp4"
+          }
+        }
+      }
+    },
+    {
+      "id": 28,
+      "type": "VHS_LoadVideo",
+      "pos": [
+        22.191914291003688,
+        1011.1999974134302
+      ],
+      "size": [
+        247.455078125,
+        551.455078125
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "meta_batch",
+          "shape": 7,
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            37
+          ]
+        },
+        {
+          "name": "frame_count",
+          "type": "INT",
+          "links": null
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            38
+          ]
+        },
+        {
+          "name": "video_info",
+          "type": "VHS_VIDEOINFO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "537f3a02269e14ab4b0350d4189a52034e9a3b12",
+        "Node name for S&R": "VHS_LoadVideo",
+        "aux_id": "Kosinkadink/ComfyUI-VideoHelperSuite"
+      },
+      "widgets_values": {
+        "video": "driving_2.mp4",
+        "force_rate": 0,
+        "custom_width": 0,
+        "custom_height": 0,
+        "frame_load_cap": 0,
+        "skip_first_frames": 0,
+        "select_every_nth": 1,
+        "format": "AnimateDiff",
+        "choose video to upload": "image",
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "force_rate": 0,
+            "custom_width": 0,
+            "custom_height": 0,
+            "frame_load_cap": 0,
+            "skip_first_frames": 0,
+            "select_every_nth": 1,
+            "filename": "driving_2.mp4",
+            "type": "input",
+            "format": "video/mp4"
+          }
+        }
+      }
+    }
+  ],
+  "links": [
+    [
+      11,
+      10,
+      0,
+      13,
+      0,
+      "IMTALKER_MODEL"
+    ],
+    [
+      12,
+      11,
+      0,
+      13,
+      1,
+      "IMAGE"
+    ],
+    [
+      13,
+      12,
+      0,
+      13,
+      2,
+      "AUDIO"
+    ],
+    [
+      28,
+      10,
+      0,
+      21,
+      0,
+      "IMTALKER_MODEL"
+    ],
+    [
+      29,
+      11,
+      0,
+      21,
+      1,
+      "IMAGE"
+    ],
+    [
+      35,
+      13,
+      0,
+      26,
+      0,
+      "IMAGE"
+    ],
+    [
+      36,
+      12,
+      0,
+      26,
+      1,
+      "AUDIO"
+    ],
+    [
+      37,
+      28,
+      0,
+      21,
+      2,
+      "IMAGE"
+    ],
+    [
+      38,
+      28,
+      2,
+      27,
+      1,
+      "AUDIO"
+    ],
+    [
+      39,
+      21,
+      0,
+      27,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "Audio Driven Animation",
+      "bounding": [
+        25,
+        14,
+        1226,
+        718
+      ],
+      "color": "#3f7842",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "Video Driven Animation (Reenactment)",
+      "bounding": [
+        10.505410000000012,
+        880.6197799999995,
+        1225,
+        617
+      ],
+      "color": "#335e78",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.6209213230591554,
+      "offset": [
+        673.089621451971,
+        134.07821952458588
+      ]
+    },
+    "workflowRendererVersion": "LG",
+    "frontendVersion": "1.32.9",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}

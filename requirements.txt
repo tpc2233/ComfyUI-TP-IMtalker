@@ -1,0 +1,9 @@
+face-alignment
+transformers
+librosa
+huggingface_hub
+tqdm
+scipy
+einops
+torchdiffeq
+timm
