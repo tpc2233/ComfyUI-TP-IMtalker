@@ -5,7 +5,9 @@ Comfy UI nodes for IMtalker to run native weights
 ![imtalker](https://github.com/user-attachments/assets/d2a0eade-bab2-45b4-85eb-81123e2a35aa)
 
 ✅ Install on Comfy via Manager: 
-soon
+
+![imtalker2](https://github.com/user-attachments/assets/729a90c8-928a-43bd-ae63-9d14d1de8a2b)
+
 
 ✅ Install on Comfy manually: 
 
